@@ -1,0 +1,243 @@
+body {
+    font-family: "ArtnetGrotesk, Helvetica, Arial, sans-serif";
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.art-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Tiêu đề của nghệ sĩ */
+.art-details h5 {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.art-details p.text-muted {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Tên tác phẩm và mô tả */
+.art-details h6 {
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Thông tin chi tiết về tác phẩm */
+.art-details p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* Khoảng cách giữa các phần */
+.art-details .text-muted {
+    margin-bottom: 20px;
+}
+
+/* Thông tin về phiên đấu giá */
+.art-details strong {
+    font-size: 15px;
+}
+
+.art-details .bid-section {
+    margin-top: 20px;
+}
+
+/* Nhãn chọn giá thầu */
+.bid-section label {
+    font-size: 14px;
+}
+
+/* Dropdown chọn giá thầu */
+.bid-section .form-select {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Chú thích bên dưới chọn giá thầu */
+.bid-section p {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 10px;
+}
+
+/* Nút hành động */
+.action-buttons {
+    margin-top: 20px;
+}
+
+.action-buttons .btn {
+    font-size: 14px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.btn-dark {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.btn-outline-dark {
+    border-color: #000;
+    color: #000;
+}
+
+.btn-outline-dark:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Đường kẻ chia các phần */
+.divider {
+    border-top: 1px solid #e0e0e0;
+    margin: 20px 0;
+}
+
+/* Phần thông tin liên hệ */
+.contact-section {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-section img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.contact-section p {
+    margin-bottom: 2px;
+}
+
+.contact-section a {
+    color: #000;
+    text-decoration: none;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+/* Biểu tượng mạng xã hội */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #000;
+    font-size: 18px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #555;
+}
+
+/* Phần liên hệ bán hàng */
+.text-center {
+    margin-top: 20px;
+}
+
+.text-center a {
+    font-weight: bold;
+    color: #000;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+/* Điều chỉnh khoảng cách giữa các dòng */
+.art-details p {
+    line-height: 1.7;
+}
+
+/* Căn chỉnh thời gian, giá thầu, và đánh giá */
+.art-details strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.art-details p span {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Căn giữa hình ảnh và thêm khoảng cách bên dưới */
+.art-image {
+    display: block;
+    margin: 140px auto 40px auto;
+    /* Thêm 40px khoảng cách dưới hình ảnh */
+    max-width: 100%;
+    height: auto;
+}
+
+/* Căn giữa nút và thêm khoảng cách */
+.text-center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Điều chỉnh khoảng cách chung cho nội dung */
+.art-details {
+    margin-top: 50px;
+    /* Tăng khoảng cách giữa hình ảnh và nội dung bên dưới */
+    margin-left: 80px;
+}
+
+/* css modal view images */
+/* Custom CSS to adjust image size in carousel */
+#imageCarousel .carousel-item img {
+    max-width: 60%; /* Adjust this percentage to make the image smaller */
+    height: auto; /* Maintain the aspect ratio */
+    margin: auto; /* Center the image */
+}
+
+.modal-body {
+    text-align: left; /* Center align text and images */
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+/* Làm mờ phần nền phía sau modal nhưng không quá mờ */
+.modal-backdrop.show {
+    background-color: rgba(255, 255, 255, 0.15); /* Làm sáng nhưng với ít màu trắng hơn */
+    backdrop-filter: blur(4px); /* Giảm độ mờ để rõ hơn */
+}
+
+/* Di chuyển biểu tượng đóng ra ngoài modal */
+.outside-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1051; /* Đảm bảo biểu tượng nằm trên modal */
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Tăng kích thước biểu tượng đóng */
+.outside-close::before {
+    content: '\00d7'; /* Ký hiệu 'X' */
+    font-size: 2rem; /* Tăng kích thước 'X' */
+    color: #000; /* Màu đen cho biểu tượng */
+}
