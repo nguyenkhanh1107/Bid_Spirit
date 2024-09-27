@@ -1,0 +1,386 @@
+body {
+    font-family: "ArtnetGrotesk, Helvetica, Arial, sans-serif";
+}
+
+.logo {
+    text-align: center;
+}
+
+.artist-card,
+.product-card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.artist-card:hover,
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item img {
+        height: 200px;
+    }
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+
+.form-select {
+    margin-bottom: 1rem;
+}
+
+.modal-content {
+    border-radius: 0.5rem;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+#artists,
+#auctions,
+#products {
+    scroll-margin-top: 70px;
+}
+
+.hero-banner {
+    background-color: #ffff !important;
+    padding: 5rem 0;
+    margin-bottom: 2rem;
+}
+
+.hero-banner h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.hero-banner p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.hero-banner img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        text-align: center;
+    }
+
+    .hero-banner img {
+        margin-top: 2rem;
+    }
+}
+
+.social-icons a,
+.list-unstyled a {
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+    color: black;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: gray;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 20px;
+}
+
+.nav-item .dropdown-menu {
+    margin-top: 10px;
+    transition: margin 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;/
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: transparent;
+    color: black;
+    transition: none;
+    color: gray;
+}
+
+.nav-item .dropdown-menu {
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.card-img-top {
+    border: none;
+
+}
+
+.artist-card {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.view-profile {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;/
+}
+
+.view-profile .text {
+    margin-right: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.artist-card img {
+    transition: none;
+}
+
+.artist-card:hover {
+    transform: none;
+}
+
+.small-text {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    margin-top: 1rem;
+}
+
+.card-body .card-text {
+    margin: 0;
+}
+
+.card-body .small-text {
+    margin-top: 0.2rem;
+}
+
+.product-card {
+    border: none;
+    /* Remove borders if needed */
+}
+
+.card-img-top {
+    width: 100%;
+    /* Ensure the image fits the card */
+    /* Maintain aspect ratio */
+    margin-bottom: 15px;
+    /* Add space between image and text */
+}
+
+.card-body {
+    line-height: 1.5;
+    /* Adjust line height for better spacing */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    /* Adjust title font size */
+    height: 40px;
+    /* Set a specific height */
+    overflow: hidden;
+    /* Prevent overflow */
+}
+
+.card-text {
+    font-size: 1rem;
+    /* Adjust text font size */
+    margin: 0.5rem 0;
+    /* Set margin for spacing */
+}
+
+/* Nút trong suốt, không có viền và màu chữ đen */
+.btn-primary {
+    background-color: transparent;
+    /* Nút trong suốt */
+    color: black;
+    /* Màu chữ đen */
+    border: none;
+    /* Bỏ viền hoàn toàn */
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    /* Hiệu ứng khi hover */
+    outline: none;
+    /* Bỏ outline khi focus */
+}
+
+/* Hiệu ứng khi hover vào nút */
+.btn-primary:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Hơi mờ với nền nhạt khi hover */
+    opacity: 0.7;
+    /* Hơi mờ khi chạm vào */
+    color: black;
+    /* Giữ màu chữ đen */
+}
+
+/* Đảm bảo không có outline khi focus vào nút */
+.btn-primary:focus {
+    outline: none;
+    box-shadow: none;
+    /* Bỏ hiệu ứng shadow viền xanh khi focus */
+}
+
+.hero-banner {
+    background-color: #f8f9fa;
+    padding: 5rem 0;
+    margin-bottom: 2rem;
+}
+
+hr {
+    width: 80%;
+    /* Adjust this value to control the width */
+    margin: 0 auto;
+    /* This centers the <hr> */
+}
+
+#auctionCarousel .card {
+    border: none;
+    box-shadow: none;
+    /* Optional */
+}
+
+.btn-text {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 200;
+}
+
+/* Ẩn menu con khi không có hover */
+.navbar-nav .dropdown-menu {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    /* Hiệu ứng di chuyển lên */
+}
+
+/* Khi hover vào mục cha hoặc menu con, menu con vẫn hiển thị */
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu,
+.navbar-nav .nav-item.dropdown .dropdown-menu:hover {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    /* Hiệu ứng trở về vị trí ban đầu */
+    position: absolute;
+    /* Đảm bảo menu con nằm trên các phần tử khác */
+}
+
+/* Tăng khoảng cách giữa các hình ảnh trong carousel */
+.carousel-item .col-md-4 {
+    margin-bottom: 30px;
+    /* Tăng khoảng cách giữa hình ảnh và phần dưới */
+}
+
+.carousel-item img {
+    padding: 10px;
+    /* Tăng khoảng cách bên trong hình ảnh */
+}
+
+h3{
+    margin-top: -30px;
+    margin-bottom: 50px;
+}
+
+
+.small-img {
+    max-width: 100%;
+    max-height: 50%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+/* carousel.css */
+.carousel {
+    margin-bottom: 1rem;
+    /* Điều chỉnh khoảng cách dưới carousel */
+}
+
+.carousel-item {
+    margin-bottom: 0;
+    /* Đảm bảo không có khoảng cách giữa các slide */
+}
+
+.small-img {
+    width: 80%;
+    /* Đảm bảo hình ảnh nhỏ hơn và có kích thước đồng đều */
+    height: auto;
+    /* Để giữ tỷ lệ khung hình của hình ảnh */
+}
+
+.bootom_hr {
+    margin-bottom: -50px;
+}
+
+/* Hiển thị nút điều khiển mũi tên */
+.carousel-control-prev,
+.carousel-control-next {
+    display: flex;
+    /* Đảm bảo nút luôn hiển thị */
+    align-items: center;
+    /* Canh giữa theo chiều dọc */
+    justify-content: center;
+    width: 5%;
+    /* Kích thước nút */
+    color: #000;
+    /* Màu sắc của icon */
+}
+
+/* Thu nhỏ thanh tìm kiếm */
+.form-control {
+    width: 150px; /* Điều chỉnh chiều rộng theo ý muốn */
+    padding: 5px; /* Điều chỉnh khoảng cách bên trong nếu cần */
+}
+
+.btn {
+    padding: 5px 10px; /* Điều chỉnh khoảng cách cho nút tìm kiếm */
+}
+
+.search-container {
+    display: none; /* Ẩn thanh tìm kiếm ban đầu */
+    margin-top: 10px; /* Khoảng cách với biểu tượng */
+}
+
+.search-container input {
+    padding: 5px;
+    width: 100%; /* Đặt chiều rộng cho thanh tìm kiếm */
+    border: 1px solid #ccc; /* Đường viền cho thanh tìm kiếm */
+    border-radius: 4px; /* Bo tròn góc cho thanh tìm kiếm */
+}
+
+.search-icon {
+    cursor: pointer; /* Chỉ tay khi di chuột vào biểu tượng */
+    font-size: 24px; /* Kích thước của biểu tượng */
+}

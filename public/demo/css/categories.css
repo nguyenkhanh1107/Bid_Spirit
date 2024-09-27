@@ -1,0 +1,139 @@
+/* Sử dụng font phù hợp */
+body {
+    font-family: "ArtnetGrotesk, Helvetica, Arial, sans-serif";
+}
+
+/* Đặt gallery theo dạng lưới với khoảng cách giữa các sản phẩm */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sản phẩm mỗi hàng */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+    padding: 20px;
+}
+
+/* Chỉnh sửa cho từng sản phẩm */
+.product-card {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Tiêu đề và thông tin sản phẩm */
+.product-card h2 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.product-card .time-remaining {
+    color: red;
+    font-weight: bold;
+}
+
+/* Điều chỉnh giao diện trên các thiết bị nhỏ hơn */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Điều chỉnh nút */
+.btn-primary {
+    background-color: transparent;
+    color: black;
+    border: none;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.7;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+.hero-banner {
+    background-color: #f8f9fa;
+    padding: 5rem 0;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        text-align: center;
+    }
+}
+
+/* Điều chỉnh dropdown menu */
+.navbar-nav .dropdown-menu {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+}
+
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    position: absolute;
+}
+
+.artwork {
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    transition: transform 0.3s ease;
+    border: none;
+    /* Bỏ viền */
+}
+
+/* .artwork:hover {
+    transform: scale(1.05);
+} */
+
+.artwork img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Đổ bóng cho hình ảnh */
+}
+
+.artwork-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.stagger-up {
+    margin-top: -20px;
+}
+
+.stagger-down {
+    margin-top: 20px;
+}
+
+.text-center a {
+    text-decoration: none;
+}
