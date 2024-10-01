@@ -8,9 +8,7 @@ use App\Http\Controllers\GalleriesController;
 use App\Http\Controllers\DetailsController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 
 Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
@@ -29,4 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+route::get('admin/dashboard', [HomeController::class, 'dashboard'])->middleware('admin')->name('admin.dashboard');
