@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class CategoriesController extends Controller
 {
     public function index() {
-        return view('layouts.categoriespage');
+        return view('pages.categoriespage');
     }
 }

@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('layouts.homepage');
+        return view('pages.homepage');
     }
 
     public function dashboard()

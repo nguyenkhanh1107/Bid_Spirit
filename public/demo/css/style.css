@@ -1,14 +1,12 @@
 body {
-    font-family: " sans-serif";
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .logo , .center-text{
     text-align: center;
-}
-
-.artist-card:hover,
-.product-card:hover {
-    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -119,7 +117,6 @@ body {
 .artist-card {
     border: none;
     box-shadow: none;
-    border-radius: 0;
 }
 
 .view-profile {
@@ -198,10 +195,6 @@ body {
     /* Set margin for spacing */
 }
 
-.artist-card,
-.product-card {
-    transition: transform 0.3s ease-in-out;
-}
 
 .carousel-item img {
     height: 400px;
@@ -277,7 +270,7 @@ hr {
 }
 
 .btn-text {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Roboto', sans-serif;
     font-weight: 200;
 }
 
