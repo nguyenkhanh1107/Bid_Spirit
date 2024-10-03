@@ -1,4 +1,4 @@
-@extends('frondend.frontend')
+@extends('layouts.main')
 
 @section('content')
       <!-- Main Content -->
@@ -6,19 +6,20 @@
         <div class="row justify-content-center">
             <!-- Navigation -->
             <div class="col-md-8">
-                <div class="d-flex justify-content-between mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="nav-buttons">
                         <a href="#" class="text-muted">&larr; PREVIOUS<br>David Yarrow</a>
                     </div>
                     <div class="text-center">
-                        <h6 class="fw-bold">Big Shots</h6>
-                        <p class="text-muted">Live now through September 26, 2024</p>
+                        <h6 class="fw-bold mb-0">Big Shots</h6>
+                        <p class="text-muted mb-0">Live now through September 26, 2024</p>
                     </div>
                     <div class="nav-buttons text-end">
                         <a href="#" class="text-muted">NEXT &rarr;<br>Vanessa Beecroft</a>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="row justify-content-center">
@@ -37,7 +38,7 @@
             <div class="col-md-5 art-details">
                 <h5><a href="#" class="text-dark">Alex Prager</a></h5>
                 <p class="text-muted">American, b. 1979</p>
-                <div class="divider"></div>
+                <hr class="hr-1px">
                 <h6><em>Nancy, 2008</em></h6>
                 <p>Chromogenic print (c-print)<br>
                     24.1 x 25.5 in. (61.21 x 64.77 cm)<br>
@@ -46,18 +47,18 @@
                     AP from an edition of 7 + 2APs
                 </p>
                 <p>Ending: <span>1 day, 12 hours, 47 mins</span></p>
-                <div class="divider"></div>
+                <hr class="hr-1px">
                 <p>Estimate: <span>6,000—8,000 USD</span></p>
-                <div class="divider"></div>
+                <hr class="hr-1px">
                 <p>Current Bid: <span>4,800 USD (1 bid, reserve not met)</span></p>
 
                 <!-- Bid Section -->
                 <div class="bid-section">
                     <label for="bidAmount" class="form-label">Choose your maximum bid*</label>
-                    
+
                   <!-- Trigger the modal bằng cách nhấp vào thẻ a -->
                 <a href="#" data-bs-toggle="modal" data-bs-target="#biddingGuideModal">
-                     <label for="bidAmount" class="form-label">How bidding works</label>
+                     <label for="bidAmount" class="form-label from-magin-left">How bidding works</label>
                 </a>
                     <select id="bidAmount" class="form-select">
                         <option selected>Select amount</option>
@@ -77,8 +78,7 @@
                     <button class="btn btn-outline-dark w-100">ADD TO WATCH LIST</button>
                 </div>
 
-                <!-- Divider -->
-                <div class="divider"></div>
+                <hr class="hr-1px">
 
                 <!-- Contact Section -->
                 <div class="d-flex align-items-center contact-section">
@@ -98,8 +98,7 @@
                     <a href="#"><i class="bi bi-envelope ti-instagram"></i></a>
                 </div>
 
-                <!-- Divider -->
-                <div class="divider"></div>
+                  <hr class="hr-1px">
 
                 <!-- Sell Similar Work -->
 
@@ -114,68 +113,55 @@
         <div class="modal-dialog modal-fullscreen modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body d-flex justify-content-center align-items-center">
-                    <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="https://images.artnet.com/aoa_lot_images/142603/alex-prager-nancy-photographs-zoom-2_375_500.jpg?d44901fc1def44158129c58540819222"
-                                    class="d-block w-100" alt="Image 1">
-                                <div class="image-description text-center mt-2">
-                                    <h6><em>Nancy, 2008</em></h6>
-                                    <p>Chromogenic print (c-print)<br>
-                                        24.1 x 25.5 in. (61.21 x 64.77 cm)<br>
-                                        Frame: 24.9 x 25.4 x 2 in. (63.25 x 64.52 x 5.08 cm)<br>
-                                        Signed, titled, numbered and dated "Alex Prager 'Nancy' 2008 1AP" on verso<br>
-                                        AP from an edition of 7 + 2APs
-                                    </p>
-                                    <p>This is a detailed description of the first image. It can include information
-                                        about the artwork, artist, and other relevant details.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://images.artnet.com/aoa_lot_images/142603/alex-prager-nancy-photographs-zoom-3_375_500.jpg?90e15cbb5de1464fa2a3401d9fcb9b9b"
-                                    class="d-block w-100" alt="Image 2">
-                                <div class="image-description text-center mt-2">
-                                    <h6><em>Nancy, 2008</em></h6>
-                                    <p>Chromogenic print (c-print)<br>
-                                        24.1 x 25.5 in. (61.21 x 64.77 cm)<br>
-                                        Frame: 24.9 x 25.4 x 2 in. (63.25 x 64.52 x 5.08 cm)<br>
-                                        Signed, titled, numbered and dated "Alex Prager 'Nancy' 2008 1AP" on verso<br>
-                                        AP from an edition of 7 + 2APs
-                                    </p>
-                                    <p>This is a detailed description of the second image. It can include information
-                                        about the artwork, artist, and other relevant details.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://images.artnet.com/aoa_lot_images/142603/alex-prager-nancy-photographs-zoom-4_375_500.jpg?f21cd488e8484aa799b0edfc70ccd9e5"
-                                    class="d-block w-100" alt="Image 3">
-                                <div class="image-description text-center mt-2">
-                                    <h6><em>Nancy, 2008</em></h6>
-                                    <p>Chromogenic print (c-print)<br>
-                                        24.1 x 25.5 in. (61.21 x 64.77 cm)<br>
-                                        Frame: 24.9 x 25.4 x 2 in. (63.25 x 64.52 x 5.08 cm)<br>
-                                        Signed, titled, numbered and dated "Alex Prager 'Nancy' 2008 1AP" on verso<br>
-                                        AP from an edition of 7 + 2APs
-                                    </p>
-                                    <p>This is a detailed description of the third image. It can include information
-                                        about the artwork, artist, and other relevant details.</p>
-                                </div>
-                            </div>
+                <div class="modal-body d-flex flex-column align-items-center">
+                    <!-- Container cho hình ảnh và nút mũi tên -->
+                    <div class="image-container">
+                        <!-- Hình ảnh đầu tiên -->
+                        <img id="modalImage" src="https://images.artnet.com/aoa_lot_images/142603/alex-prager-nancy-photographs-zoom-2_375_500.jpg?d44901fc1def44158129c58540819222" alt="Current Image">
+
+                        <!-- Nút mũi tên -->
+                        <div class="arrow-buttons">
+                            <button id="prevButton" class="arrow-left">
+                                &#10094;
+                            </button>
+                            <button id="nextButton" class="arrow-right">
+                                &#10095;
+                            </button>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                    </div>
+
+                    <!-- Mô tả chi tiết -->
+                    <div id="imageDescription" class="image-description text-center mt-4">
+                        <div id="descriptionContent">
+                            <h6><em>Nancy, 2008</em></h6>
+                            <p>Chromogenic print (c-print)<br> 24.1 x 25.5 in. (61.21 x 64.77 cm)<br> Frame: 24.9 x 25.4 x 2 in. (63.25 x 64.52 x 5.08 cm)<br>
+                                Signed, titled, numbered and dated "Alex Prager 'Nancy' 2008 1AP" on verso<br> AP from an edition of 7 + 2APs
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Các hình ảnh và mô tả khác -->
+                    <div id="imageGallery" style="display: none;">
+                        <div class="image-item" data-image="https://images.artnet.com/aoa_lot_images/142603/alex-prager-nancy-photographs-zoom-2_375_500.jpg?d44901fc1def44158129c58540819222">
+                            <h6><em>Nancy, 2008</em></h6>
+                            <p>Chromogenic print (c-print)<br> 24.1 x 25.5 in. (61.21 x 64.77 cm)<br> Frame: 24.9 x 25.4 x 2 in. (63.25 x 64.52 x 5.08 cm)<br>
+                                Signed, titled, numbered and dated "Alex Prager 'Nancy' 2008 1AP" on verso<br> AP from an edition of 7 + 2APs
+                            </p>
+                        </div>
+                        <div class="image-item" data-image="https://images.artnet.com/aoa_lot_images/142603/alex-prager-nancy-photographs-zoom-3_375_500.jpg?90e15cbb5de1464fa2a3401d9fcb9b9b">
+                            <h6><em>Nancy, 2008</em></h6>
+                            <p>Chromogenic print (c-print)<br> 24.1 x 25.5 in. (61.21 x 64.77 cm)<br> Frame: 24.9 x 25.4 x 2 in. (63.25 x 64.52 x 5.08 cm)<br>
+                                Signed, titled, numbered and dated "Alex Prager 'Nancy' 2008 2AP" on verso<br> AP from an edition of 7 + 2APs
+                            </p>
+                        </div>
+                        <div class="image-item" data-image="https://images.artnet.com/aoa_lot_images/142603/alex-prager-nancy-photographs-zoom-4_375_500.jpg?f21cd488e8484aa799b0edfc70ccd9e5">
+                            <h6><em>Nancy, 2008</em></h6>
+                            <p>Chromogenic print (c-print)<br> 24.1 x 25.5 in. (61.21 x 64.77 cm)<br> Frame: 24.9 x 25.4 x 2 in. (63.25 x 64.52 x 5.08 cm)<br>
+                                Signed, titled, numbered and dated "Alex Prager 'Nancy' 2008 3AP" on verso<br> AP from an edition of 7 + 2APs
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

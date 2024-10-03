@@ -1,6 +1,6 @@
 /* Sử dụng font phù hợp */
 body {
-    font-family: "ArtnetGrotesk, Helvetica, Arial, sans-serif";
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Đặt gallery theo dạng lưới với khoảng cách giữa các sản phẩm */
@@ -15,13 +15,7 @@ body {
 .product-card {
     background-color: #fff;
     padding: 10px;
-    border: 1px solid #ddd;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
-
-.product-card:hover {
-    transform: scale(1.05); /* Phóng to nhẹ khi hover */
 }
 
 .product-card img {
