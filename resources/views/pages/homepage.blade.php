@@ -1,4 +1,4 @@
-@extends('frondend.frontend')
+@extends('layouts.main')
 
 
 @section('content')
@@ -24,16 +24,15 @@
 <main>
     <section id="artists" class="py-5">
         <div class="container center-text">
-            <h2 class="text-center mb-4">Featured Artists</h2>
+            <h2 class="text-center mb-4">HIHI</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card h-100 artist-card">
                         <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f" class="card-img-top"
                             alt="Artist 1">
                         <div class="card-body">
-                            <h5 class="card-title">Jane Doe</h5>
-                            <p class="card-text">Contemporary abstract painter known for vibrant colors.</p>
-                            <a href="#" class="btn btn-primary btn-text">View Profile</a>
+                            <h5 class="card-title">Artworks</h5>
+                            <a href="{{route('categoriespage')}}" class="btn btn-primary btn-text">View</a>
                         </div>
                     </div>
                 </div>
@@ -42,9 +41,8 @@
                         <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b" class="card-img-top"
                             alt="Artist 2">
                         <div class="card-body">
-                            <h5 class="card-title">John Smith</h5>
-                            <p class="card-text">Sculptor specializing in modern metal installations.</p>
-                            <a href="#" class="btn btn-primary btn-text">View Profile</a>
+                            <h5 class="card-title">Coins</h5>
+                            <a href="{{route('categoriespage')}}" class="btn btn-primary btn-text">View</a>
                         </div>
                     </div>
                 </div>
@@ -53,9 +51,8 @@
                         <img src="https://images.unsplash.com/photo-1563089145-599997674d42" class="card-img-top"
                             alt="Artist 3">
                         <div class="card-body">
-                            <h5 class="card-title">Emily Chen</h5>
-                            <p class="card-text">Digital artist pushing boundaries of technology and art.</p>
-                            <a href="#" class="btn btn-primary btn-text">View Profile</a>
+                            <h5 class="card-title">Antiques</h5>
+                            <a href="{{route('categoriespage')}}" class="btn btn-primary btn-text">View</a>
                         </div>
                     </div>
                 </div>
@@ -122,22 +119,6 @@
                         <option value="3">Digital Art</option>
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <select class="form-select" aria-label="Filter by artist">
-                        <option selected>All Artists</option>
-                        <option value="1">Jane Doe</option>
-                        <option value="2">John Smith</option>
-                        <option value="3">Emily Chen</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select" aria-label="Filter by auction date">
-                        <option selected>All Dates</option>
-                        <option value="1">This Week</option>
-                        <option value="2">This Month</option>
-                        <option value="3">Next Month</option>
-                    </select>
-                </div>
             </div>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
@@ -160,10 +141,10 @@
                         <img src="https://images.artnet.com/aoa_lot_images/Banners/7/BigShots-homepage-timeStamp638611302747054775_1164_579.jpg"
                             class="card-img-top" alt="Product 2">
                         <div class="card-body">
-                            <h5 class="card-title">Modern Sculpture</h5>
-                            <p class="card-text">Artist: John Smith</p>
-                            <p class="card-text">Current Bid: $4000</p>
-                            <p class="card-text">Status: Active</p>
+                                <h5 class="card-title">Modern Sculpture</h5>
+                                <p class="card-text">Artist: John Smith</p>
+                                <p class="card-text">Current Bid: $4000</p>
+                                <p class="card-text">Status: Active</p>
                             <button class="btn btn-primary btn-text" data-bs-toggle="modal"
                                 data-bs-target="#bidModal">Place
                                 Bid</button>

@@ -1,0 +1,339 @@
+.carousel-item img {
+    object-fit: cover;
+    height: 500px;
+}
+
+.thumbnail-slider img {
+    height: 100px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+    color: #fff;
+}
+
+.carousel-caption p {
+    margin-top: 40px;
+}
+
+.carousel-caption a {
+    margin-top: 40px;
+
+}
+
+.btn-primary {
+    background-color: white;
+    color: black;
+    border: none;
+    /* Viền đen */
+}
+
+.btn-primary:hover {
+    background-color: white;
+    /* Giữ nguyên màu nền trắng khi hover */
+    color: gray;
+    /* Đổi màu chữ thành xám khi hover */
+}
+
+/* thumbaicss */
+.thumbnail-slider img {
+    height: 80px;
+    /* Kích thước ảnh */
+    object-fit: cover;
+    /* Đảm bảo ảnh không bị méo */
+    width: 42%;
+    /* Chiều rộng đầy đủ */
+}
+
+.thumbnail-caption {
+    margin-left: 15px;
+    /* Khoảng cách giữa ảnh và caption */
+}
+
+.thumbnail-caption h6 {
+    font-weight: normal;
+    /* Đặt trọng lượng chữ thành bình thường */
+    margin-bottom: 5px;
+    /* Khoảng cách dưới tiêu đề */
+    font-size: 0.9rem;
+    /* Kích thước chữ tiêu đề */
+}
+
+.thumbnail-caption p {
+    margin: 0;
+    /* Bỏ khoảng cách cho đoạn văn bản */
+    font-size: 0.8rem;
+    /* Kích thước chữ đoạn văn */
+}
+
+
+.divider {
+    border-left: 1px solid #ccc;
+    /* Màu và kích thước của đường chia */
+    height: 80px;
+    /* Chiều cao của đường chia, điều chỉnh để phù hợp với chiều cao hình ảnh */
+    margin-left: 10px;
+    /* Khoảng cách từ hình ảnh đến đường line */
+    margin-right: 10px;
+    /* Khoảng cách từ đường line đến văn bản */
+}
+
+/* Giữ tỷ lệ hình ảnh */
+.thumbnail-img {
+    width: 100%;
+    /* Đảm bảo ảnh chiếm hết chiều rộng của cột */
+    height: auto;
+    /* Đảm bảo giữ tỷ lệ ảnh */
+    object-fit: cover;
+    /* Giữ cho ảnh không bị méo */
+}
+
+/* Đường line phân cách */
+.carousel-item .col-6:not(:last-child),
+.carousel-item .col-3:not(:last-child) {
+    position: relative;
+}
+
+.carousel-item .col-6:not(:last-child)::after,
+.carousel-item .col-3:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    height: 80px;
+    border-left: 1px solid #ccc;
+    /* Đường viền phân cách */
+}
+
+/* Thu nhỏ màn hình */
+@media (max-width: 768px) {
+    .carousel-item {
+        display: flex;
+    }
+
+    .carousel-item .col-6 {
+        flex: 0 0 50%;
+        /* Chỉ hiển thị 2 hình */
+        max-width: 50%;
+    }
+}
+
+/* Khi màn hình lớn, hiển thị 4 hình */
+@media (min-width: 769px) {
+    .carousel-item .col-3 {
+        flex: 0 0 25%;
+        /* Hiển thị 4 hình */
+        max-width: 25%;
+    }
+}
+
+.col-6 a {
+    text-decoration: none;
+}
+
+.ms-2 h7 {
+    margin: -2px 0 4px;
+    color: #999;
+}
+
+.ms-2 h6{
+    color: #000;
+margin: 0 0 1px;
+}
+.hr-top {
+margin-top: 60px;
+margin-bottom: 60px;
+}
+
+/* Styles cho Featured Categories */
+.featured-category img {
+    object-fit: cover;
+    width: 100%;
+    height: 00px; /* Đảm bảo chiều cao cố định cho ảnh */
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+.featured-category h6 {
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    color: #333;
+}
+
+.category-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.category-title {
+    margin-bottom: 60px;
+}
+
+.category-item {
+    margin-bottom: 30px;
+}
+
+.category-item img {
+    height: 300px;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #555;
+}
+
+/* Responsive styling to ensure images maintain size */
+@media (max-width: 768px) {
+    .category-item img {
+        height: 300px;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.col-12 h6 {
+    margin-top: 1.1rem;
+}
+
+/*  */
+/* Container chính cho phần nội dung trending artworks */
+.trending-artworks-container {
+    max-width: 1200px; /* Tăng chiều rộng của container */
+    margin: 60px auto 0 auto; /* Căn giữa container và tạo khoảng cách trên */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Kiểu dáng cho slider chứa ảnh */
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Gallery chứa các ảnh, tạo khoảng cách giữa các ảnh */
+.artworks-gallery {
+    display: flex;
+    transition: transform 0.5s ease; /* Thêm hiệu ứng khi chuyển slide */
+    width: 100%; /* Chiều rộng full */
+}
+
+/* Chỉ hiển thị 4 ảnh tại một thời điểm */
+.artworks-gallery-wrapper {
+    width: 100%;
+    overflow: hidden; /* Ẩn các ảnh ngoài khung */
+    margin: 0 auto;
+}
+
+/* Kiểu dáng cho từng mục ảnh (artwork-item) */
+.artwork-item {
+    flex: 0 0 calc(25% - 20px); /* Đặt kích thước của mỗi ảnh để chiếm khoảng 25%, trừ đi khoảng cách */
+    margin: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Hình ảnh trong từng artwork */
+.artwork-image img {
+    width: 58%; /* Giữ kích thước của bạn */
+    height: 76%; /* Giữ kích thước của bạn */
+    max-height: 250px; /* Giới hạn chiều cao tối đa của ảnh */
+    object-fit: cover; /* Đảm bảo ảnh giữ nguyên tỷ lệ và không bị méo */
+    display: block;
+    margin: 0 auto; /* Căn giữa hình ảnh */
+
+}
+
+/* Kiểu dáng cho phần chữ mô tả nằm dưới hình ảnh */
+.artwork-details {
+    margin-top: 10px; /* Khoảng cách từ hình ảnh đến mô tả */
+    text-align: center; /* Căn giữa mô tả */
+    font-family: Arial, sans-serif;
+}
+
+/* Kiểu dáng cho chữ */
+.artist-name {
+    font-size: 16px; /* Kích thước chữ */
+    font-weight: bold;
+    margin: 0;
+    color: #000; /* Màu đen cho tên nghệ sĩ */
+}
+
+.artwork-title {
+    font-size: 14px;
+    font-style: italic;
+    margin: 0;
+    color: #888; /* Màu xám nhạt cho tiêu đề */
+}
+
+.artwork-price {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+
+/* Kiểu dáng cho nút điều hướng mũi tên */
+.prev, .next {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.prev {
+    left: 0;
+    top: 88px;
+}
+
+.next {
+    right: 0;
+    top: 88px;
+}
+
+/* Khoảng cách cho tiêu đề và phần filter */
+.mt-magin {
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+/* Kiểu dáng cho liên kết "View All Artworks" */
+.view-all {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+
+.view-all:hover {
+    color: #777;
+}
+
+
