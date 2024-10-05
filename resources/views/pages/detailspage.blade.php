@@ -59,7 +59,6 @@
                     <input type="number" id="bidAmount" name="bidAmount" min="{{ $item->starting_price }}"
                         step="{{ $item->auction->step }}" class="form-control"
                         oninput="validateBidAmount(this.value, {{ $item->auction->step }}, {{ $item->starting_price }})"
-                        placeholder="{{ number_format($item->starting_price, 2) }} USD">
 
                     <p class="mt-2 text-muted" style="font-size: 12px;">
                         Your bid: <span id="bidValue">{{ number_format($item->starting_price, 2) }} USD</span><br>
@@ -67,9 +66,9 @@
                         the hammer price of the lot. <a href="#">Buyer's Premium</a>.
                     </p>
 
-                    <div id="bidErrorMessage" class="text-danger" style="display: none;">
-                        The bid amount must be a multiple of {{ $item->auction->step }} USD.
-                    </div>
+                        <div id="bidErrorMessage" class="text-danger" style="display: none;">
+                        </div>
+
                 </div>
 
                 <!-- Action Buttons -->
@@ -100,18 +99,19 @@
         function validateBidAmount(value, step, startingPrice) {
         // Chuyển đổi giá trị nhập sang số
         const bidAmount = parseFloat(value);
+        const bidStep = parseFloat(step) + parseFloat(startingPrice);
         
         // Kiểm tra nếu giá trị nhỏ hơn giá khởi điểm
-        if (bidAmount < startingPrice) {
+        if (bidAmount < bidStep) {
             document.getElementById('bidErrorMessage').style.display = 'block';
-            document.getElementById('bidErrorMessage').innerHTML = 'The bid amount must be more than the initial price in multiples of the price step!';
+            document.getElementById('bidErrorMessage').innerHTML = 'The bid amount must be greater than the starting price.';
             document.getElementById('bidValue').innerHTML = startingPrice.toLocaleString() + ' USD';
             return;
         }
-        
         // Kiểm tra nếu giá trị không là bội số của bước giá
-        if (bidAmount % step !== 0) {
+        else if ((bidAmount % step !== 0) && bidAmount > startingPrice) {
             document.getElementById('bidErrorMessage').style.display = 'block';
+            document.getElementById('bidErrorMessage').innerHTML = 'The bid amount must be a multiple of ' + {{ $item->auction->step }} + ' USD.'
             document.getElementById('bidValue').innerHTML = startingPrice.toLocaleString() + ' USD';
         } else {
             document.getElementById('bidErrorMessage').style.display = 'none';
