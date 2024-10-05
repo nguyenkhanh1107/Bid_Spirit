@@ -75,7 +75,6 @@
                 <!-- Action Buttons -->
                 <div class="action-buttons">
                     <button class="btn btn-dark w-100 mb-2">PLACE BID</button>
-                    <button class="btn btn-outline-dark w-100">ADD TO WATCH LIST</button>
                 </div>
 
                 <hr class="hr-1px">

@@ -16,6 +16,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    
     protected $fillable = [
         'first_name',
         'last_name',
@@ -44,5 +45,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Quan hệ với bảng Item
+    public function items()
+    {
+        return $this->hasMany(Item::class);
     }
 }
