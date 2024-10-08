@@ -3,10 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\GalleriesController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\AuctionsController;
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\UsersController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
@@ -36,4 +39,27 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+// Admin session
 route::get('admin/dashboard', [HomeController::class, 'dashboard'])->middleware('admin')->name('admin.dashboard');
+
+route::get('/admin/categories', [CategoriesController::class, 'show'])->middleware('admin')->name('admin.categories');
+Route::post('/categories/store', [CategoriesController::class, 'store'])->middleware('admin')->name('category.store');
+Route::delete('/admin/categorie/{id}', [CategoriesController::class, 'destroy'])->name('category.destroy');
+Route::get('/admin/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('category.edit');
+Route::put('/admin/categories/{id}', [CategoriesController::class, 'update'])->name('category.update');
+
+
+// Items session
+Route::get('/admin/items', [ItemsController::class, 'index'])->name('items.index');
+Route::post('/admin/items/store', [ItemsController::class, 'store'])->name('items.store');
+Route::get('/admin/items/{id}/edit', [ItemsController::class, 'edit'])->name('items.edit');
+Route::put('/admin/items/{id}', [ItemsController::class, 'update'])->name('items.update');
+Route::delete('/admin/items/{id}', [ItemsController::class, 'destroy'])->name('items.destroy');
+
+
+// Users session
+Route::get('/admin/users', [UsersController::class, 'index'])->name('users.index');
+Route::post('/admin/users/store', [UsersController::class, 'store'])->name('users.store');
+Route::get('/admin/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
+Route::put('/admin/users/{id}', [UsersController::class, 'update'])->name('users.update');
+Route::delete('/admin/users/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
