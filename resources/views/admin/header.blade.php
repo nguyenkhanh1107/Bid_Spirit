@@ -29,8 +29,10 @@
                 <div class="list-inline-item logout">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-
-                        <input type="submit" value="Logout">
+                        <button type="submit"
+                            style="background-color: #64686b; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease;">
+                            Logout
+                        </button>
                     </form>
                 </div>
             </div>

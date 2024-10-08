@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,9 +23,58 @@ class Auction extends Model
         'status',
     ];
 
+
     // Mối quan hệ: Một phiên đấu giá thuộc về một sản phẩm (Item)
     public function item()
     {
         return $this->belongsTo(Item::class);
+    }
+
+    /**
+     * Quan hệ với bảng Bid.
+     * Mỗi phiên đấu giá có nhiều lượt đặt giá (Bids).
+     */
+    public function bids()
+    {
+        return $this->hasMany(Bid::class);
+    }
+
+    /**
+     * Quan hệ với bảng Payment.
+     * Mỗi phiên đấu giá có thể có một payment.
+     */
+    public function payments()
+    {
+        return $this->hasOne(Payment::class);
+    }
+
+    /**
+     * Tính tổng số tiền bid cho phiên đấu giá này.
+     *
+     * @return float
+     */
+    public function totalBidAmount()
+    {
+        return $this->bids()->sum('bid_amount');
+    }
+
+    /**
+     * Đếm số lượt bid trong phiên đấu giá này.
+     *
+     * @return int
+     */
+    public function bidCount()
+    {
+        return $this->bids()->count();
+    }
+
+    /**
+     * Kiểm tra xem phiên đấu giá có đang hoạt động không.
+     *
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->status === 'active';
     }
 }

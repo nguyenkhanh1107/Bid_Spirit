@@ -12,10 +12,11 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                @include('admin.body')
+                @include('admin.item.table')
             </div>
         </div>
     </div>
+
     <!-- JavaScript files-->
     <script src="{{ asset('admincss/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('admincss/vendor/popper.js/umd/popper.min.js') }}"></script>
