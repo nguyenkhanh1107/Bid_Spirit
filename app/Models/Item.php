@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -8,28 +9,29 @@ class Item extends Model
 {
     use HasFactory;
 
-    // Cho phép thêm các cột này vào bảng
+    /**
+     * Các thuộc tính có thể thêm/sửa.
+     *
+     * @var array
+     */
     protected $fillable = [
         'id', 'category_id', 'title', 'bid_count', 'description', 'starting_price', 'image_path',
     ];
 
-    // Quan hệ với bảng Category
+    /**
+     * Quan hệ với bảng Category.
+     * Mỗi Item thuộc về một Category.
+     */
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    // Quan hệ với bảng User
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function auction()
-    {
-        return $this->hasOne(Auction::class);
-    }
-
+  
+    /**
+     * Quan hệ với bảng Bid.
+     * Mỗi Item có nhiều lượt đặt giá (Bids).
+     */
     public function bids()
     {
         return $this->hasMany(Bid::class);
@@ -42,5 +44,15 @@ class Item extends Model
     public function getBidCountAttribute()
     {
         return $this->bids()->sum('bid_amount');
+    }
+    // Quan hệ với bảng User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function auction()
+    {
+        return $this->hasOne(Auction::class);
     }
 }

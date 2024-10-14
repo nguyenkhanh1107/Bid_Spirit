@@ -54,7 +54,7 @@ class CategoriesController extends Controller
         return view('pages.categoriespage', compact('items'));
     }
 
-    
+
     public function store(Request $request)
     {
         // Validate dữ liệu nhập vào
@@ -112,4 +112,3 @@ class CategoriesController extends Controller
         return redirect()->route('admin.categories')->with('success', 'Category updated successfully!');
     }
 }
-

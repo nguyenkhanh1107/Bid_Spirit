@@ -32,4 +32,6 @@ class Bid extends Model
     {
         return $this->hasOneThrough(Item::class, Auction::class, 'id', 'id', 'auction_id', 'item_id');
     }
+
+    
 }

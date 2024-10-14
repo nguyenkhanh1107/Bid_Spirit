@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,12 +23,14 @@ class Auction extends Model
         'status',
     ];
 
+
     // Mối quan hệ: Một phiên đấu giá thuộc về một sản phẩm (Item)
     public function item()
     {
         return $this->belongsTo(Item::class);
     }
-/**
+
+    /**
      * Quan hệ với bảng Bid.
      * Mỗi phiên đấu giá có nhiều lượt đặt giá (Bids).
      */
@@ -75,4 +78,3 @@ class Auction extends Model
         return $this->status === 'active';
     }
 }
-

@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('usertype', 50)->default('user')->after('last_name'); // Thêm cột usertype
+            $table->dropUnique(['country']);
+            $table->dropUnique(['province']);
+            $table->dropUnique(['district']);
+            $table->dropUnique(['ward']);
+            $table->dropUnique(['address']);
         });
     }
 
@@ -22,7 +26,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('usertype'); // Xóa cột khi rollback
+            $table->unique('country');
+            $table->unique('province');
+            $table->unique('district');
+            $table->unique('ward');
+            $table->unique('address');
         });
     }
 };
