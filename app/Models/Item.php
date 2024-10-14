@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,10 +15,19 @@ class Item extends Model
      *
      * @var array
      */
+    /**
+     * Các thuộc tính có thể thêm/sửa.
+     *
+     * @var array
+     */
     protected $fillable = [
         'id', 'category_id', 'title', 'bid_count', 'description', 'starting_price', 'image_path',
     ];
 
+    /**
+     * Quan hệ với bảng Category.
+     * Mỗi Item thuộc về một Category.
+     */
     /**
      * Quan hệ với bảng Category.
      * Mỗi Item thuộc về một Category.
