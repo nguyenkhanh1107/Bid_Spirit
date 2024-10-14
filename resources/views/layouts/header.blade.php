@@ -49,7 +49,7 @@
             </div>
             <div class="d-flex">
                 @if (Auth::check())
-                    <span class="nav-link">Welcome, {{ Auth::user()->first_name }}</span>
+                    <span class="nav-link">Welcome, {{ Auth::user()->last_name}}</span>
                     <span class="mx-2"></span>
                     <a class="nav-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>

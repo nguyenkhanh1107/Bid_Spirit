@@ -10,7 +10,7 @@ class Item extends Model
 
     // Cho phép thêm các cột này vào bảng
     protected $fillable = [
-        'id', 'category_id', 'title', 'bid_count', 'description', 'starting_price', 'image_path'
+        'id', 'category_id', 'title', 'bid_count', 'description', 'starting_price', 'image_path',
     ];
 
     // Quan hệ với bảng Category
@@ -28,5 +28,19 @@ class Item extends Model
     public function auction()
     {
         return $this->hasOne(Auction::class);
+    }
+
+    public function bids()
+    {
+        return $this->hasMany(Bid::class);
+    }
+
+    /**
+     * Accessor để tính tổng bid_amount.
+     * Sử dụng: $item->bid_count.
+     */
+    public function getBidCountAttribute()
+    {
+        return $this->bids()->sum('bid_amount');
     }
 }
