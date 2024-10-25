@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('first_name', 50)->unique()->notNullable();
             $table->string('last_name', 50)->unique()->notNullable();
+            $table->string('usertype', 50)->default('user');
             $table->string('email', 100)->unique()->notNullable();
             $table->string('password', 255)->notNullable();
             $table->date('date_of_birth')->nullable();

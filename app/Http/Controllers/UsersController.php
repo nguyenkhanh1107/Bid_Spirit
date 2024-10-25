@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -51,8 +51,6 @@ class UsersController extends Controller
         return redirect()->route('users.index')->with('success', 'User added successfully!');
     }
 
-
-
     // Hiển thị form chỉnh sửa người dùng
     public function edit($id)
     {
@@ -66,6 +64,7 @@ class UsersController extends Controller
         $request->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
+            'usertype' => 'required|in:user,admin', // Validation cho usertype
             'email' => 'required|email|unique:users,email,' . $id,
             'date_of_birth' => 'nullable|date',
             'country' => 'nullable|max:255',
@@ -80,6 +79,7 @@ class UsersController extends Controller
         $user->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'usertype' => $request->usertype, // Cập nhật usertype
             'email' => $request->email,
             'date_of_birth' => $request->date_of_birth,
             'country' => $request->country,

@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-    <!-- Main Content -->
     <div class="container mt-5">
         <!-- Thông báo nếu có -->
         @if (session('success'))
@@ -9,9 +8,9 @@
                 {{ session('success') }}
             </div>
         @elseif(session('fail'))
-        <div class="alert alert-danger">
-            {{ session('fail') }}
-        </div>
+            <div class="alert alert-danger">
+                {{ session('fail') }}
+            </div>
         @endif
         <div class="row justify-content-center">
             <!-- Navigation -->
@@ -49,58 +48,76 @@
                     @if (\Carbon\Carbon::now()->greaterThan(\Carbon\Carbon::parse($item->auction->end_date)))
                         End Price: {{ number_format($item->auction->end_price, 2) }} USD<br>
                     @else
-                        End Price: Auction still ongoing<br>
+                        <p>End Price: <b>Auction still ongoing</b></p>
                     @endif
-                    Auction Status: {{ $item->auction->status }}
+                <p>Auction Status: <b>{{ $item->auction->status }}</b></p>
                 </p>
                 <p>Ending: <span>{{ \Carbon\Carbon::parse($item->auction->end_date)->diffForHumans() }}</span></p>
                 <hr class="hr-1px">
                 <p>Current Step: <span>{{ number_format($item->auction->step, 2) }} USD</span></p>
-                
+
+                <!-- Hiển thị giá trị bid cao nhất hoặc end_price nếu auction kết thúc -->
+                <p>Highest Bid:
+                    @if ($item->auction->status === 'closed')
+                        <!-- Nếu đấu giá đã kết thúc, hiển thị giá trị end_price -->
+                        <span>{{ number_format($item->auction->end_price, 2) }} USD</span>
+                    @else
+                        <!-- Nếu đấu giá chưa kết thúc, hiển thị giá trị bid cao nhất -->
+                        @if ($highestBid)
+                            <span>{{ number_format($highestBid->bid_amount, 2) }} USD</span>
+                        @else
+                            <span>No bids yet</span>
+                        @endif
+                    @endif
+                </p>
+
+                <!-- Hiển thị giá trị bid cao nhất của user hiện tại nếu có -->
+                @auth
+                    <p>Your Highest Bid:
+                        @if ($userHighestBid)
+                            <span>{{ number_format($userHighestBid->bid_amount, 2) }} USD</span>
+
+                            <!-- Kiểm tra nếu Your Highest Bid = Highest Bid và auction đã đóng (closed) thì hiện thông báo "YOU WON" -->
+                            @if ($item->auction->status === 'closed' && $userHighestBid->bid_amount == $highestBid->bid_amount)
+                                <span style="color: darkgreen; font-weight: bold;">YOU WON</span>
+                            @else <span style="color: darkgreen; font-weight: bold;">YOU LOST</span>
+                            @endif
+                        @else
+                            <span>You haven't placed any bids yet</span>
+                        @endif
+                    </p>
+                @endauth
+
+
 
                 <!-- Bid Section -->
                 <div class="bid-section">
                     <label for="bidAmount" class="form-label">Enter your maximum bid*</label>
                     <input type="number" id="bidAmount" name="bidAmount" min="{{ $item->starting_price }}"
                         step="{{ $item->auction->step }}" class="form-control"
-                        oninput="validateBidAmount(this.value,
-                        {{ $item->auction->step }}, 
-                        {{ $item->starting_price }}); checkBidAmount(this); updateHiddenBid(this.value)">
+                        oninput="validateBidAmount(this.value, {{ $item->auction->step }}, {{ $item->starting_price }}); checkBidAmount(this); updateHiddenBid(this.value)">
                     <p class="mt-2 text-muted" style="font-size: 12px;">
                         Your bid: <span id="bidValue">{{ number_format($item->starting_price, 2) }} USD</span><br>
                         * This amount excludes shipping fees, applicable taxes and will have a Buyer's Premium based on
                         the hammer price of the lot. <a href="#">Buyer's Premium</a>.
                     </p>
-
-                    <div id="bidErrorMessage" class="text-danger" style="display: none;">
-                    </div>
-
+                    <div id="bidErrorMessage" class="text-danger" style="display: none;"></div>
                 </div>
 
                 <!-- Action Buttons -->
                 <div class="action-buttons">
                     @if ($item->auction->status !== 'closed' && $item->auction->status !== 'pending')
                         @auth
-                            <form action="{{ route('bid.placeBid') }}" method="POST" onsubmit="updateHiddenBid(document.getElementById('bidAmount').value)">
+                            <form action="{{ route('bid.placeBid') }}" method="POST"
+                                onsubmit="updateHiddenBid(document.getElementById('bidAmount').value)">
                                 @csrf
-                                <!-- Hidden inputs to pass the item and category details to the payment page -->
                                 <input type="hidden" name="item_id" value="{{ $item->id }}">
                                 <input type="hidden" name="auction_id" value="{{ $item->auction->id }}">
-                                <input type="hidden" name="item_title" value="{{ $item->title }}">
-                                <input type="hidden" name="item_image" value="{{ $item->image_path }}">
-                                <input type="hidden" name="item_image" value="{{ $item->image_path }}">
-                                <input type="hidden" name="item_bid" id="item_bid" value="">
-
-                                <input type="hidden" name="category_name" value="{{ $item->category->name }}">
                                 <input type="hidden" name="starting_price" value="{{ $item->starting_price }}">
-                                <input type="hidden" name="end_price"
-                                    value="{{ $item->auction->end_price ?? $item->starting_price }}">
-                                <input type="hidden" name="step" value="{{ $item->auction->step }}">
-
+                                <input type="hidden" name="item_bid" id="item_bid" value="">
                                 <button type="submit" id="placeBidButton" class="btn btn-dark w-100 mb-2" name="redirect"
                                     disabled>PLACE BID</button>
                             </form>
-                            {{-- <a href="{{ route('payment') }}" class="btn btn-dark w-100 mb-2">Log in to place a bid</a> --}}
                         @else
                             <a href="{{ route('login') }}" class="btn btn-dark w-100 mb-2">Log in to place a bid</a>
                         @endauth
@@ -110,7 +127,6 @@
                         <p class="text-muted text-center">This auction has ended. No more bids can be placed.</p>
                     @endif
                 </div>
-
 
                 <hr class="hr-1px">
 
@@ -123,38 +139,33 @@
                         <a href="#" class="text-dark">MESSAGE SUSANNA</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
     <script>
-        
-
         function updateBidValue(value) {
             document.getElementById('bidValue').innerHTML = new Intl.NumberFormat().format(value) + ' USD';
         }
 
         function validateBidAmount(value, step, startingPrice) {
-            // Chuyển đổi giá trị nhập sang số
             const bidAmount = parseFloat(value);
             const bidStepedAmount = parseFloat(step) + parseFloat(startingPrice);
             const stepVal = bidAmount - parseFloat(startingPrice);
             const placeBidButton = document.getElementById('placeBidButton');
-            // Kiểm tra nếu giá trị nhỏ hơn giá khởi điểm
+
             if (bidAmount < bidStepedAmount) {
-                placeBidButton.disabled = true; // Disable button
+                placeBidButton.disabled = true;
                 document.getElementById('bidErrorMessage').style.display = 'block';
                 document.getElementById('bidErrorMessage').innerHTML =
                     'The bid amount must be greater than the starting price.';
                 document.getElementById('bidValue').innerHTML = startingPrice.toLocaleString() + ' USD';
                 return;
-            }
-            // Kiểm tra nếu giá trị không là bội số của bước giá
-            else if ((stepVal % step !== 0) && bidAmount > startingPrice) {
-                const placeBidButton = document.getElementById('placeBidButton');
+            } else if ((stepVal % step !== 0) && bidAmount > startingPrice) {
                 document.getElementById('bidErrorMessage').style.display = 'block';
                 document.getElementById('bidErrorMessage').innerHTML = 'The bid amount must be a multiple of ' +
-                    {{ $item->auction->step }} + ' USD.'
+                    {{ $item->auction->step }} + ' USD.';
                 document.getElementById('bidValue').innerHTML = startingPrice.toLocaleString() + ' USD';
             } else {
                 placeBidButton.disabled = false;

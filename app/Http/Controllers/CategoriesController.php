@@ -9,10 +9,21 @@ use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
+    public function showCategory($category)
+    {
+        // Tìm danh mục theo tên
+        $category = Category::where('name', $category)->firstOrFail();
+
+        // Lấy tất cả các item thuộc category đó
+        $items = Item::where('category_id', $category->id)->get();
+
+        return view('pages.category', compact('items', 'category'));
+    }
     public function index()
     {
         // Lấy tất cả các items kèm theo thông tin phiên đấu giá
-        $items = Item::with('auction')->get();
+        $items = Item::with('auction')->paginate(5);
+        // $items = Item::with('auction')->get();
 
         // Lặp qua các item để tính toán thời gian đấu giá và trạng thái
         foreach ($items as $item) {

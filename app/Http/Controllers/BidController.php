@@ -12,6 +12,7 @@ class BidController extends Controller
     public function placeBid(Request $request)
     {
         $user_id = Auth::user()->id; // Lấy user hiện tại
+        $item_id =  $request->input('item_id'); 
         $auction_id = $request->input('auction_id'); // Lấy auction_id từ request
         $item_bid = $request->input('item_bid'); // Lấy số tiền bid từ request
         // Tìm auction theo auction_id
@@ -38,6 +39,7 @@ class BidController extends Controller
                 // User đã đặt bid
                 Bid::create([
                     'auction_id' => $auction_id,
+                    'item_id' => $item_id,
                     'user_id' => $user_id,
                     'bid_amount' => $item_bid,
                 ]);
@@ -47,6 +49,7 @@ class BidController extends Controller
                 // Đây là lần đầu tiên user đặt bid cho auction này, tạo mới và chuyển đến thanh toán
                 Bid::create([
                     'auction_id' => $auction_id,
+                    'item_id' => $item_id,
                     'user_id' => $user_id,
                     'bid_amount' => $item_bid,
                 ]);

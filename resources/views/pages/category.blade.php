@@ -9,7 +9,9 @@
                     <div class="dropdown">
                         <label for="viewSelect" class="me-2">View</label>
                         <select class="form-select d-inline-block w-auto" id="viewSelect">
-                            <option value="20">5</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
                         </select>
                     </div>
                 </div>
@@ -30,17 +32,21 @@
 
             <!-- Artwork Grid -->
             <div class="row g-4">
-                @foreach ($items as $item)
+                @foreach($items as $item)
                     <div class="col-md-3">
-                        <div class="artwork p-3 text-center">
-                            <a href="{{ route('detailspage', ['id' => $item->id]) }}">
-                                <img src="{{ asset($item->image_path) }}" alt="{{ $item->title }}" class="img-fluid">
+                        <div class="artwork p-3 text-center shadow-sm border rounded">
+                            <a href="{{ route('detailspage', ['id' => $item->id]) }}" class="text-decoration-none">
+                                <img src="{{ asset($item->image_path) }}" alt="{{ $item->title }}" class="img-fluid rounded mb-3" style="height: 200px; object-fit: cover;">
                                 <div class="artwork-title">
                                     <strong style="font-size: 1rem; color: #2c3e50;">{{ $item->category->name }}</strong><br>
                                     @php
                                         $now = \Carbon\Carbon::now();
-                                        $startDate = $item->auction ? \Carbon\Carbon::parse($item->auction->start_date) : null;
-                                        $endDate = $item->auction ? \Carbon\Carbon::parse($item->auction->end_date) : null;
+                                        $startDate = $item->auction
+                                            ? \Carbon\Carbon::parse($item->auction->start_date)
+                                            : null;
+                                        $endDate = $item->auction
+                                            ? \Carbon\Carbon::parse($item->auction->end_date)
+                                            : null;
                                     @endphp
                                     @if ($item->auction)
                                         @if ($now->lessThan($startDate))
@@ -50,7 +56,7 @@
                                         @else
                                             <span style="font-weight: bold; font-size: 1.05rem; color: #9a3300;">{{ $item->title }}</span><br>
                                         @endif
-                                        {{ number_format($item->starting_price, 2) }} USD<br>
+                                        <p class="mt-2 mb-0">{{ number_format($item->starting_price, 2) }} USD</p>
                                         <!-- Hiển thị trạng thái đấu giá -->
                                         @if ($now->lessThan($startDate))
                                             <span class="text-muted">Coming Soon In - {{ $startDate->diffForHumans() }}</span>
@@ -61,7 +67,7 @@
                                         @endif
                                     @else
                                         <span style="font-weight: bold; font-size: 1.05rem; color: #979797;">{{ $item->title }}</span><br>
-                                        {{ number_format($item->starting_price, 2) }} USD<br>
+                                        <p class="mt-2 mb-0">{{ number_format($item->starting_price, 2) }} USD</p>
                                         <span class="text-muted">No Auction Yet</span>
                                     @endif
                                 </div>
@@ -70,12 +76,6 @@
                     </div>
                 @endforeach
             </div>
-
-            <!-- Pagination Links -->
-            <div class="mt-4">
-                {{ $items->links() }}
-            </div>
-
         </div>
     </main>
 @endsection

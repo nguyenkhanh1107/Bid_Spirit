@@ -30,6 +30,13 @@
                                 value="{{ $user->last_name }}" required>
                         </div>
                         <div class="form-group">
+                            <label for="usertype">User Type</label>
+                            <select name="usertype" id="usertype" class="form-control" required>
+                                <option value="user" {{ $user->usertype == 'user' ? 'selected' : '' }}>User</option>
+                                <option value="admin" {{ $user->usertype == 'admin' ? 'selected' : '' }}>Admin</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" class="form-control"
                                 value="{{ $user->email }}" required>

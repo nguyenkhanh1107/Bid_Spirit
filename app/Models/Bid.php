@@ -13,8 +13,9 @@ class Bid extends Model
 
     protected $fillable = [
         'auction_id',
+        'item_id',
         'user_id',
-        'bid_amount'
+        'bid_amount',
     ];
 
     // Liên kết tới model Auction
@@ -33,5 +34,4 @@ class Bid extends Model
         return $this->hasOneThrough(Item::class, Auction::class, 'id', 'id', 'auction_id', 'item_id');
     }
 
-    
 }

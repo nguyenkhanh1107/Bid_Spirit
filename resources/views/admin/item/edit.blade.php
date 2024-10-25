@@ -45,6 +45,11 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="image_path">Image Path</label>
+                            <input type="text" name="image_path" id="image_path" class="form-control"
+                                value="{{ $item->image_path }}" required>
+                        </div>
+                        <div class="form-group">
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>

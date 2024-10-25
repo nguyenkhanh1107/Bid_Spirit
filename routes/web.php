@@ -12,15 +12,27 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\GalleriesController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\AuctionsController;
+use App\Http\Controllers\ContactController;
 
-Route::get('/', [HomeController::class, 'index'])->name('homepage');
+Route::get('/homepage', [HomeController::class, 'indexPageAuction'])->name('homepage');
+
+Route::get('/', [AuctionsController::class, 'indexPageAuction'])->name('auctions');
+
+Route::get('/categories/{category}', [CategoriesController::class, 'showCategory'])->name('maincategoriespage');
 
 
-Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
 Route::get('/auctionspage', [AuctionsController::class, 'index'])->name('auctionspage');
 Route::get('/categoriespage', [CategoriesController::class, 'index'])->name('categoriespage');
-Route::get('/galleriespage', [GalleriesController::class, 'index'])->name('galleriespage');
 Route::get('/detailspage/item/{id}', [DetailsController::class, 'index'])->name('detailspage');
+Route::get('/galleriespage', [GalleriesController::class, 'index'])->name('galleriespage');
+
+// contact
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index'); // Hiển thị form liên hệ
+Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit'); // Xử lý form
+// aubout
+Route::get('/about', [ContactController::class, 'about'])->name('about.index');
+// insurance-plan
+Route::get('/insurance-plan', [ContactController::class, 'insurance'])->name('insurance.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -72,3 +84,37 @@ Route::post('/admin/users/store', [UsersController::class, 'store'])->name('user
 Route::get('/admin/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
 Route::put('/admin/users/{id}', [UsersController::class, 'update'])->name('users.update');
 Route::delete('/admin/users/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
+
+// Auctions session
+// Route::get('/items-by-category/{id}', [AuctionsController::class, 'getItemsByCategory']);
+// Route::resource('auctions', AuctionsController::class);
+// Route cho hiển thị danh sách Auction
+Route::get('/admin/auctions', [AuctionsController::class, 'index'])->name('auctions.index');
+
+// Route cho form thêm Auction
+Route::get('/admin/auctions/create', [AuctionsController::class, 'create'])->name('auctions.create');
+
+// Route lưu thông tin Auction mới
+Route::post('/admin/auctions/store', [AuctionsController::class, 'store'])->name('auctions.store');
+
+// Route cho form chỉnh sửa Auction
+Route::get('/admin/auctions/{id}/edit', [AuctionsController::class, 'edit'])->name('auctions.edit');
+
+// Route cập nhật thông tin Auction
+Route::put('/admin/auctions/{id}', [AuctionsController::class, 'update'])->name('auctions.update');
+
+// Route xóa Auction
+Route::delete('/admin/auctions/{id}', [AuctionsController::class, 'destroy'])->name('auctions.destroy');
+
+// Route lấy các Items theo Category qua AJAX
+Route::get('/admin/items-by-category/{categoryId}', [AuctionsController::class, 'getItemsByCategory']);
+
+//Route History Bid
+Route::get('/admin/bid-history', [AuctionsController::class, 'bidHistory'])->name('auctions.bidHistory');
+Route::get('/admin/{auction}/bids', [AuctionsController::class, 'bidDetails'])->name('auctions.bidDetails');
+
+
+//
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('admin/galleries', GalleriesController::class);
+});

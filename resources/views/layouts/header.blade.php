@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtAuction - Home</title>
+    <title>Bid Spirit</title>
 
     <!-- Roboto Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,10 @@
         rel="stylesheet">
 
     <!-- Bootstrap and other styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('demo/css/galleries.css') }}">
     <link rel="stylesheet" href="{{ asset('demo/css/detail.css') }}">
     <link rel="stylesheet" href="{{ asset('demo/css/categories.css') }}">
-    <link rel="stylesheet" href="{{ asset('demo/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('demo/css/auctions.css') }}">
+    <link rel="stylesheet" href="{{ asset('demo/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('demo/assets/themify-icons-font/themify-icons/themify-icons.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -50,13 +48,7 @@
             <div></div>
             <div class="text-center">
                 <h1 class="display-9" style="font-weight: 500;">
-                    <a href="{{ route('homepage') }}"
-                        style="text-decoration: none; color: inherit; font-size: inherit;">
-                        Bid Spirit
-                    </a>
-                </h1>
-                <h1 class="display-9" style="font-weight: 500;">
-                    <a href="{{ route('homepage') }}"
+                    <a href="{{ route('auctions') }}"
                         style="text-decoration: none; color: inherit; font-size: inherit;">
                         Bid Spirit
                     </a>
@@ -110,13 +102,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('homepage') }}">Artists</a>
+                        <a class="nav-link" href="{{ route('categoriespage') }}">All Auctions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('categoriespage') }}">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('galleriespage') }}">Galleries</a>
+                        <a class="nav-link" href="{{route('galleriespage')}}">Galleries</a>
                     </li>
                 </ul>
                 <!-- Search Bar -->

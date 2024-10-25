@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtAuction - Home</title>
+    <title>Bid Spirit</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('demo/css/galleries.css') }}">
+
     <link rel="stylesheet" href="{{ asset('demo/css/detail.css') }}">
     <link rel="stylesheet" href="{{ asset('demo/css/categories.css') }}">
     <link rel="stylesheet" href="{{ asset('demo/css/style.css') }}">
@@ -44,16 +44,18 @@
             <div class="col-md-3">
                 <h5>Policies</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Privacy</a></li>
+                    <li><a href="{{ route('insurance.index') }}">Insurance Plan</a></li>
+                    <li><a href="{{ route('about.index') }}" class="text-white">About Us</a></li>
                     <li><a href="#" class="text-white">Terms</a></li>
                 </ul>
             </div>
+
 
             <!-- Services -->
             <div class="col-md-3">
                 <h5>Services</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Contact Us</a></li>
+                    <li><a href="{{route('contact.index')}}" class="text-white">Contact Us</a></li>
                 </ul>
             </div>
 

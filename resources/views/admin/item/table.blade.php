@@ -17,9 +17,10 @@
             <tr>
                 <th style="width: 5%;">ID</th>
                 <th style="width: 10%;">Title</th>
-                <th style="width: 50%;">Description</th>
+                <th style="width: 35%;">Description</th>
                 <th style="width: 10%;">Starting Price</th>
                 <th style="width: 10%;">Category</th>
+                <th style="width: 15%;">Image Path</th>
                 <th style="width: 15%;">Actions</th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@
                     <td>{{ $item->description }}</td>
                     <td>{{ $item->starting_price }}</td>
                     <td>{{ $item->category->name }}</td>
+                    <td>{{ $item->image_path }}</td>
                     <td>
                         <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary btn-sm">Edit</a>
                         <form action="{{ route('items.destroy', $item->id) }}" method="POST"
@@ -74,6 +76,11 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                            <label for="image_path">Image Path</label>
+                            <input type="text" name="image_path" id="image_path" class="form-control" 
+                            placeholder="images/(your image's name)" required>
+                        </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>

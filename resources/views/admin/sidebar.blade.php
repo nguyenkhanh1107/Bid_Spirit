@@ -25,6 +25,12 @@
             <li class="{{ Request::is('/admin/users') ? 'active' : '' }}">
                 <a href="{{ url('/admin/users') }}"> <i class="icon-grid"></i>Users </a>
             </li>
+            <li class="{{ Request::is('/admin/auctions') ? 'active' : '' }}">
+                <a href="{{ url('/admin/auctions') }}"> <i class="icon-grid"></i>Auctions </a>
+            </li>
+            <li class="{{ Request::is('/admin/bid-history') ? 'active' : '' }}">
+                <a href="{{ url('/admin/bid-history') }}"> <i class="icon-grid"></i>Bid History </a>
+            </li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i
                         class="icon-windows"></i>Example dropdown </a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">

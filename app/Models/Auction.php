@@ -15,6 +15,7 @@ class Auction extends Model
     // Các cột có thể được thêm/sửa
     protected $fillable = [
         'item_id',
+        'category_id',
         'start_price',
         'end_price',
         'step',
@@ -28,6 +29,11 @@ class Auction extends Model
     public function item()
     {
         return $this->belongsTo(Item::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     /**

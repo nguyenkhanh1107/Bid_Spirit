@@ -34,8 +34,9 @@ return new class extends Migration
         Schema::create('auctions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->decimal('start_price', 10, 2)->notNullable();
-            $table->decimal('end_price', 10, 2)->notNullable();
+            $table->decimal('end_price', 10, 2)->nullable();
             $table->decimal('step', 10, 2)->notNullable();
             $table->dateTime('start_date')->notNullable();
             $table->dateTime('end_date')->notNullable();
@@ -46,15 +47,10 @@ return new class extends Migration
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
             $table->foreignId('auction_id')->constrained('auctions')->onDelete('cascade');
+            $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->decimal('bid_amount', 10, 2)->notNullable();
             $table->timestamps();
-        });
-
-        Schema::create('item_categories', function (Blueprint $table) {
-            $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
-            $table->primary(['item_id', 'category_id']);
         });
 
         Schema::create('payments', function (Blueprint $table) {
